@@ -1,25 +1,43 @@
 from openai import OpenAI
 from dotenv import load_dotenv
 import os
+import base64
 
 load_dotenv()
 api_key = os.getenv('api_key')
-print(api_key)
-# 체크하기
 
 # 1. 클라이언트 초기화 (API 키 입력)
 # 환경 변수에 저장했다면 키 값을 생략해도 자동으로 불러옵니다.
 client = OpenAI(api_key=api_key)
 
-def get_chatgpt_answer(system_content, user_question):
-    # 2. API 호출
-    response = client.chat.completions.create(
-        model="gpt-4o",                                   # model에서 사용할 모델 이름을 입력한다.
-        messages=[                                        # 대화 내역을 리스트 형태로 전달
-            {"role": "system", "content": system_content}, # system : 행동지침, 페르소나
-            {"role": "user", "content": user_question}    # 리스트 원소로 role과 content가 있는 딕셔너리를 가진다.
-        ]                                                 # role : user(사용자 입력), assistant(과거 답변), system(행동지침, 페르소나), tool(함수 호출)
-    )
+def get_chatgpt_answer(system_content, user_question, image_base64=None):
+    
+    if image_base64:
+        # 이미지가 있을 경우 user_question에 이미지 정보를 추가
+        user_question += f"\n[Image in base64]: {image_base64}"
+        
+        # 2. API 호출
+        response = client.chat.completions.create(
+            model="gpt-4o",                                   
+            messages=[                                        
+                {"role": "system", "content": system_content}, 
+                {"role": "user", "content": [
+                    {"type": "text", "text": user_question},
+                    {"type": "image_url", "image_url": {
+                        "url": f"data:image/png;base64,{image_base64}"}}
+            ]}                                         
+            ]                                                 
+        )
+        
+    else:    
+        # 2. API 호출
+        response = client.chat.completions.create(
+            model="gpt-4o",                                   # model에서 사용할 모델 이름을 입력한다.
+            messages=[                                        # 대화 내역을 리스트 형태로 전달
+                {"role": "system", "content": system_content}, # system : 행동지침, 페르소나
+                {"role": "user", "content": user_question}    # 리스트 원소로 role과 content가 있는 딕셔너리를 가진다.
+            ]                                                 # role : user(사용자 입력), assistant(과거 답변), system(행동지침, 페르소나), tool(함수 호출)
+        )
     
     # 3. 답변 반환
     return response.choices[0].message.content
@@ -28,14 +46,30 @@ def load_prompt(file_path):
     with open(file_path, "r", encoding="utf-8") as f:
         return f.read()
 
+
+def encode_image(image_path):
+    with open(image_path, "rb") as image_file:
+        return base64.b64encode(image_file.read()).decode('utf-8')
+
+
+
+
+
+
+
+
+
 # 파일 경로 설정 (파이썬 파일과 같은 폴더에 있을 경우)
 system_content = load_prompt("system_prompt.txt")
 game_state = load_prompt("game_state.txt")
+image = encode_image("image.png")
 
 
 # 실행 예시
 answer = get_chatgpt_answer(system_content, game_state)
-print(f"ChatGPT의 답변: {answer}")
+print(f"ChatGPT의 답변 이미지X: {answer}")
+answer = get_chatgpt_answer(system_content, game_state, image)
+print(f"ChatGPT의 답변 이미지O : {answer}")
 
 # response 속 정보
 # {

@@ -1,10 +1,15 @@
 from openai import OpenAI
+from dotenv import load_dotenv
+import os
 
+load_dotenv()
+api_key = os.getenv('api_key')
+print(api_key)
 # 체크하기
 
 # 1. 클라이언트 초기화 (API 키 입력)
 # 환경 변수에 저장했다면 키 값을 생략해도 자동으로 불러옵니다.
-client = OpenAI(api_key="")
+client = OpenAI(api_key=api_key)
 
 def get_chatgpt_answer(system_content, user_question):
     # 2. API 호출

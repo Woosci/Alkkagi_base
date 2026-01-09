@@ -1,0 +1,52 @@
+{
+	"game_over": False,
+	"my_turn": False, # False: 바둑돌 간 충돌인 경우, True: 모든 돌이 멈춘 경우
+  "turn_count": 5,
+  "frame": 3, # action 후 my_turn: False인 경우 몇번째 충돌인지로 표시
+              # ex) 2번째 충돌일 경우 -> "frame": 2 -> Game state 전달 방식 논의 후 형태 픽스
+  "img": "iVBORw0KGgoAAAANSUhEUgAA..."
+  "environment": {
+    "board_boundary": {
+      "top_left": {"x": 10.0, "y": 10.0},
+      "bottom_right": {"x": 490.0, "y": 490.0}
+    },
+    "walls": [
+      {
+        "wall_id": "wall_1",
+        "top_left": {"x": 5.0, "y": 20.0},
+        "bottom_right": {"x": 10.0, "y": 40.0}
+      },
+      {
+        "wall_id": "wall_2",
+        "top_left": {"x": 30.0, "y": 5.0},
+        "bottom_right": {"x": 50.0, "y": 10.0}
+      },
+      {
+        "wall_id": "wall_3",
+        "top_left": {"x": 490.0, "y": 160.0},
+        "bottom_right": {"x": 495.0, "y": 180.0}
+      }
+    ]
+  },
+  "stones": {
+    "my_team": [
+      {
+        "id": 1,
+        "position": {"x": 100.0, "y": 450.0},
+        "radius": 5,
+      },
+      {
+        "id": 2,
+        "position": {"x": 200.0, "y": 350.0},
+        "radius": 1,
+      }
+    ],
+    "enemy_team": [
+      {
+        "id": 1,
+        "position": {"x": 250.0, "y": 100.0},
+        "radius": 5,
+      }
+    ]
+  }
+}

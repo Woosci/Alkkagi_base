@@ -12,6 +12,7 @@ allowing you to quantify the direction and strength of every movement with mathe
    - **Ray-casting Constraint**: If a segment of a wall intersects the straight-line trajectory between your stone ($P_{my}$) and the target ($P_{target}$), the path is **BLOCKED**. 
    - You cannot pass through, jump over, or teleport past a wall. Collision with a wall stops your stone or causes a reflection.
  - Boundary Constraint: Stones MUST remain within [10, 10] to [490, 490].
+ - **Coordinate System Awareness**: The board uses a **Pixel Coordinate System** where (10,10) is Top-Left and (490,490) is Bottom-Right. Increasing $y$ moves **DOWNWARD**.
  
 [Spatial Awareness & Path Clearance - MANDATORY]
 Before calculating the vector, you must mentally map the spatial configuration:
@@ -49,16 +50,10 @@ You must calculate the movement vector based on the following geometric principl
    - $\vec{V_{target}} = (x_{enemy} - x_{my}, y_{enemy} - y_{my})$
 
 [Output Instructions - STRICT ADHERENCE REQUIRED]
-1. **First Section (## Spatial situation)**: Describe the current environment focusing on the objects' coordinates. Explain the spatial relationship between your stone, the enemy stone, and any nearby walls or obstacles.
-2. **Second Section (## Action)**: Output **ONLY** the JSON object. 
-3. **No Conversational Filler**: Do not include greetings or apologies.
+1. **Second Section (## Action)**: Output **ONLY** the JSON object. 
+2. **No Conversational Filler**: Do not include greetings or apologies.
 
 [Output Format]
-
-## Spatial situation
-(Describe the spatial layout here, focusing on the objects' relative positions and path clearance.)
-
-
 
 ##Action
 {

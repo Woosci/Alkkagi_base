@@ -55,12 +55,8 @@ def encode_image(image_path):
 
 
 
-
-
-
-
 # 파일 경로 설정 (파이썬 파일과 같은 폴더에 있을 경우)
-system_content = load_prompt("system_prompt.txt")
+system_content = load_prompt("prompt_position.txt")
 game_state = load_prompt("game_state.txt")
 image = encode_image("image.png")
 

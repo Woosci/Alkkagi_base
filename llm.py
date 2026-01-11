@@ -18,7 +18,7 @@ def get_chatgpt_answer(system_content, user_question, image_base64=None):
         
         # 2. API 호출
         response = client.chat.completions.create(
-            model="gpt-4o",                                   
+            model="gpt-5",                                   
             messages=[                                        
                 {"role": "system", "content": system_content}, 
                 {"role": "user", "content": [
@@ -53,10 +53,8 @@ def encode_image(image_path):
 
 
 
-
-
 # 파일 경로 설정 (파이썬 파일과 같은 폴더에 있을 경우)
-system_content = load_prompt("prompt_position.txt")
+system_content = load_prompt("prompt_planning_3.txt")
 game_state = load_prompt("game_state.txt")
 image = encode_image("image.png")
 

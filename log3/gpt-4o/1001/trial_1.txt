@@ -1,0 +1,11 @@
+--- RESPONSE ---
+{
+    "selected_direction": "18",
+    "strategy_analysis": {
+        "reasoning": "Direction 18 allows my stone to directly hit the enemy stone at (540, 383) without being obstructed by any walls. This strike can push the enemy stone towards the top of the board, potentially eliminating it by moving it outside the boundary.",
+        "expected_outcome": "My stone will move upward, contacting the enemy stone at (540, 383), causing it to move towards the boundary at the top of the board."
+    }
+}
+
+--- USAGE ---
+CompletionUsage(completion_tokens=113, prompt_tokens=2060, total_tokens=2173, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=0, rejected_prediction_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cached_tokens=1920))

@@ -3,8 +3,6 @@ import numpy as np
 import json
 import math
 
-
-
 def process_alkkagi_frame_v5(image_src, json_data, resolution):
 
     # 1. 이미지 로드 및 리사이즈
@@ -102,13 +100,13 @@ def process_alkkagi_frame_v5(image_src, json_data, resolution):
             cv2.rectangle(overlay, (x1, y1), (x2, y2), (0, 255, 0), -1)
         cv2.addWeighted(overlay, 0.4, result, 0.6, 0, result)
 
-    cv2.imwrite(f"alkkagi_v5_clamped_{resolution}.png", result)
+    #cv2.imwrite(f"alkkagi_v5_clamped_{resolution}.png", result)
     return result
 
 
 
-game_state_data = open("game_state2.txt", "r", encoding="utf-8").read()
-src = cv2.imread("/home/woosci/test1/Alkkagi/image_data/real_stage/real_stage_2.png")  
+# game_state_data = open("game_state2.txt", "r", encoding="utf-8").read()
+# src = cv2.imread("/home/woosci/test1/Alkkagi/image_data/real_stage/real_stage_2.png")  
 
-# --- 사용 예시 ---
-output = process_alkkagi_frame_v5(src, game_state_data, 512)
+# # --- 사용 예시 ---
+# output = process_alkkagi_frame_v5(src, game_state_data, 512)

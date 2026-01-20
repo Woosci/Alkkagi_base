@@ -45,12 +45,9 @@ def encode_cv2_to_base64(image_obj, format=".png"):
             return None
             
         # 2. 버퍼 데이터를 바이트로 변환 후 Base64로 인코딩
-        base64_str = base64.b64encode(buffer).decode('utf-8')
-        
-        # 3. 필요 시 웹에서 바로 사용할 수 있도록 헤더를 붙여서 반환
-        # (헤더가 필요 없다면 base64_str만 반환해도 됩니다.)
-        prefix = f"data:image/{format[1:]};base64,"
-        return prefix + base64_str
+        base64_str = base64.b64encode(buffer).decode('utf-8').replace("\n", "").replace("\r", "")
+
+        return base64_str
 
     except Exception as e:
         print(f"Error during Base64 encoding: {e}")

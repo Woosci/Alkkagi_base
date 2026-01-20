@@ -1,0 +1,11 @@
+--- RESPONSE ---
+{
+    "selected_direction": "19",
+    "strategy_analysis": {
+        "reasoning": "Direction 19 is chosen to utilize the angle that allows the stone to reach the upper enemy stone while considering reflection angles from walls tactically. The approach is to push the enemy stone towards the edge of the board and potentially out, due to lesser wall obstruction in this path.",
+        "expected_outcome": "The stone hits the top enemy stone, causing it to move closer to the upper boundary of the board without significant wall obstruction, increasing the chance for it to be ejected from the board in subsequent turns."
+    }
+}
+
+--- USAGE ---
+CompletionUsage(completion_tokens=127, prompt_tokens=2060, total_tokens=2187, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=0, rejected_prediction_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cached_tokens=1920))

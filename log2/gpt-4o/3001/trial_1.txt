@@ -1,0 +1,13 @@
+--- RESPONSE ---
+```json
+{
+    "selected_direction": "15",
+    "strategy_analysis": {
+      "reasoning": "Direction 15 provides a direct path towards the cluster of enemy stones. Given the lack of walls, this angle could allow our stone to collide with multiple enemy stones, potentially sending one or more off the board.",
+      "expected_outcome": "Our stone moves towards the enemy stones, potentially hitting them. Depending on the collision dynamics, one or more enemy stones may be knocked out of the board. Our stone should remain on the board due to the initial trajectory and positioning."
+    }
+}
+```
+
+--- USAGE ---
+CompletionUsage(completion_tokens=123, prompt_tokens=1361, total_tokens=1484, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=0, rejected_prediction_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cached_tokens=0))

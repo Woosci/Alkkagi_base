@@ -31,11 +31,9 @@ IMPORTANT
 
 [Output Format]
 {
-  "decision": {
     "selected_direction": "number of direction in image",
     "strategy_analysis": {
       "reasoning": "Explain the reasoning process why you chose that direction.",
       "expected_outcome": "Describe the situation of the board in sequence as the stone moves in the selected direction."
     }
   }
-}

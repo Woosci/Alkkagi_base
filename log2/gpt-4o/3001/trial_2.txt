@@ -1,0 +1,13 @@
+--- RESPONSE ---
+```json
+{
+    "selected_direction": "1",
+    "strategy_analysis": {
+        "reasoning": "Direction 1 allows my stone to move towards multiple enemy stones clustered towards the top of the board without any walls obstructing the path. This maximizes the chances of knocking at least one enemy stone out of the board.",
+        "expected_outcome": "The black stone will move upwards, hitting enemy stones positioned in a clustered arrangement. One or more enemy stones are expected to be pushed towards the top edge of the board, potentially leaving the board."
+    }
+}
+```
+
+--- USAGE ---
+CompletionUsage(completion_tokens=118, prompt_tokens=1361, total_tokens=1479, completion_tokens_details=CompletionTokensDetails(accepted_prediction_tokens=0, audio_tokens=0, reasoning_tokens=0, rejected_prediction_tokens=0), prompt_tokens_details=PromptTokensDetails(audio_tokens=0, cached_tokens=0))

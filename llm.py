@@ -91,7 +91,7 @@ def save_response_to_file(response, model_name, image_path=None):
 # 파일 경로 설정 (파이썬 파일과 같은 폴더에 있을 경우)
 system_content = load_prompt("prompt_planning.txt")
 game_state = load_prompt("game_state.txt")
-image_path = "stage_2_1_guide_18.png"
+image_path = "alkkagi_v5_clamped_512.png"
 
 # 실행 예시
 # answer = get_chatgpt_answer(system_content, game_state)
@@ -104,7 +104,7 @@ image_path = "stage_2_1_guide_18.png"
 # print(f"ChatGPT의 답변 이미지O : {answer}")
 
 for i in range(1):
-    answer = get_chatgpt_answer("gpt-4o",system_content, game_state, image_path)
+    answer = get_chatgpt_answer("gpt-5",system_content, game_state, image_path)
     print(f"ChatGPT의 답변 이미지O {i+1} : {answer}")
 
 # response 속 정보
